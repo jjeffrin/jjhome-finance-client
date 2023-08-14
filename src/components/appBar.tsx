@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { AiOutlineCloseCircle } from "react-icons/ai"
 import { HiMenuAlt3 } from "react-icons/hi"
 import { useNavigate } from "react-router-dom"
+import { SALARY_ROUTE } from "../constants"
 
 export const AppBar = () => {
 
@@ -66,7 +67,7 @@ export const AppBar = () => {
                         }
                         {keycloak.authenticated &&
                             <>
-                                <Button display={'block'} variant={'ghost'} mb={'0.5rem'} onClick={() => navigateToPage('/salary')}>Salary</Button>
+                                <Button display={'block'} variant={'ghost'} mb={'0.5rem'} onClick={() => navigateToPage(SALARY_ROUTE)}>Salary</Button>
                                 <Button display={'block'} variant={'ghost'} mb={'0.5rem'}>Expenses</Button>
                                 <Button display={'block'} variant={'ghost'} mb={'0.5rem'}>Savings</Button>
                                 <Button display={'block'} variant={'ghost'} mb={'0.5rem'}>Subscriptions</Button>

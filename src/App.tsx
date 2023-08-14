@@ -4,6 +4,7 @@ import { AppBar } from './components/appBar';
 import { DashboardPage } from './pages/dashboard';
 import { SalaryPage } from './pages/salary';
 import { NotFoundPage } from './pages/notFound';
+import { BASE_ROUTE, SALARY_ROUTE, WILDCARD_ROUTE } from './constants';
 
 function App() {
 
@@ -12,9 +13,9 @@ function App() {
       <Container maxW={'container.xl'} my={'2rem'}>
         <AppBar />
         <Routes>
-          <Route path='/' element={<DashboardPage />} />
-          <Route path='/salary' element={<SalaryPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path={BASE_ROUTE} element={<DashboardPage />} />
+          <Route path={SALARY_ROUTE} element={<SalaryPage />} />
+          <Route path={WILDCARD_ROUTE} element={<NotFoundPage />} />
         </Routes>
       </Container>
     </BrowserRouter>
