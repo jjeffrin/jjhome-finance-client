@@ -3,12 +3,14 @@ import { useKeycloak } from "@react-keycloak/web"
 import { useState, useEffect } from "react"
 import { AiOutlineCloseCircle } from "react-icons/ai"
 import { HiMenuAlt3 } from "react-icons/hi"
+import { useNavigate } from "react-router-dom"
 
 export const AppBar = () => {
 
     const [showMenu, setShowMenu] = useState<boolean>(false)
     const [userInfo, setUserInfo] = useState<any>({})
     const { keycloak } = useKeycloak()
+    const navigate = useNavigate()
 
     const closeMenu = () => {
         setShowMenu(false)
@@ -16,6 +18,14 @@ export const AppBar = () => {
 
     const openMenu = () => {
         setShowMenu(true)
+    }
+
+    const navigateToPage = (path: string) => {
+        // close the menu before navigating to any page..
+        setShowMenu(false)
+
+        // redirect the user to required page
+        navigate(path)
     }
 
     useEffect(() => {
@@ -43,7 +53,6 @@ export const AppBar = () => {
             >
                 <DrawerOverlay />
                 <DrawerContent>
-                    {/* <DrawerCloseButton /> */}
                     <DrawerHeader>
                         <Flex flexDir={'row'} alignItems={'center'} justifyContent={'space-between'}>
                             <Text display={'block'}>Menu</Text>
@@ -57,7 +66,7 @@ export const AppBar = () => {
                         }
                         {keycloak.authenticated &&
                             <>
-                                <Button display={'block'} variant={'ghost'} mb={'0.5rem'}>Salary</Button>
+                                <Button display={'block'} variant={'ghost'} mb={'0.5rem'} onClick={() => navigateToPage('/salary')}>Salary</Button>
                                 <Button display={'block'} variant={'ghost'} mb={'0.5rem'}>Expenses</Button>
                                 <Button display={'block'} variant={'ghost'} mb={'0.5rem'}>Savings</Button>
                                 <Button display={'block'} variant={'ghost'} mb={'0.5rem'}>Subscriptions</Button>

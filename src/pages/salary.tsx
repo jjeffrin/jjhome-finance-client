@@ -2,6 +2,8 @@ import { Text } from "@chakra-ui/react"
 
 export const SalaryPage = () => {
     return (
-        <Text>This is salary page</Text>
+        <>
+            <Text mt={'1rem'} fontWeight={'semibold'}>Manage Salary</Text>
+        </>
     )
 }
