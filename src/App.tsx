@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/react';
+import { Container, Progress } from '@chakra-ui/react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AppBar } from './components/appBar';
 import { DashboardPage } from './pages/dashboard';
@@ -10,6 +10,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    {/* <Progress isIndeterminate size={'xs'}/> */}
       <Container maxW={'container.xl'} my={'2rem'}>
         <AppBar />
         <Routes>

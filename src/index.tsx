@@ -14,6 +14,7 @@ import '@fontsource/inter/800.css'
 import '@fontsource/inter/900.css'
 import { ReactKeycloakProvider } from '@react-keycloak/web';
 import keycloak from './keycloak';
+import { DALServiceProvider } from './contexts/dalServiceContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -30,7 +31,9 @@ root.render(
   // <React.StrictMode>
   <ChakraProvider theme={appTheme}>
     <ReactKeycloakProvider authClient={keycloak}>
-      <App />
+      <DALServiceProvider>
+        <App />
+      </DALServiceProvider>
     </ReactKeycloakProvider>
   </ChakraProvider>
   // </React.StrictMode>
